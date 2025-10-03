@@ -2,12 +2,9 @@
 
 using namespace std;
 
-void add()
+void add(int inputs)
 {
-    int inputs;
     double result = 0;
-    cout << "Enter amount of numbers you want to add: ";
-    cin >> inputs;
 
     for (int i = 0; i < inputs; i++) {
         double number;
@@ -20,14 +17,11 @@ void add()
     cout << "Final answer is: " << result << endl;
 }
 
-void subtract()
+void subtract(int inputs)
 {
-    int inputs;
     double orig_number;
     cout << "Enter the number to be subtracted from: ";
     cin >> orig_number;
-    cout << "Enter amount of numbers to subtract from original number: ";
-    cin >> inputs;
     for (int i = 0; i < inputs; i++) {
         double number;
         cout << "Enter number to subtract from " << orig_number << ": ";
@@ -35,19 +29,14 @@ void subtract()
         cout << "Number taken: " << number << endl;
         orig_number -= number;
         cout << "Answer: " << orig_number << endl;
-
-
     }
     double result = orig_number;
     cout << "Final answer is: " << result << endl;
 }
 
-void multiply()
+void multiply(int inputs)
 {
-    int inputs;
     double result = 1;
-    cout << "Enter amount of numbers you want to multiply: ";
-    cin >> inputs;
     for (int i = 0; i < inputs; i++) {
         double number;
         cout << "Enter number to multiply with: ";
@@ -55,21 +44,15 @@ void multiply()
         cout << "Number taken: " << number << endl;;
         result = result * number;
         cout << "Answer: " << result << endl;
-
-
     }
     cout << "Final answer is: " << result << endl;
-
 }
 
-void divide()
+void divide(int inputs)
 {
-    int inputs;
     double orig_number;
     cout << "Enter the number to be divided: ";
     cin >> orig_number;
-    cout << "Enter amount of numbers to divide the original number with: ";
-    cin >> inputs;
     for (int i = 0; i < inputs; i++) {
         double number;
         cout << "Enter number to divide " << orig_number << " with: ";
@@ -99,16 +82,20 @@ int main()
 
         if (op < 1 || op > 4) {
             cout << "Wrong input." << endl;
-        } else
+        } else {
+            int numValues;
+            cout << "Enter the number of values: ";
+            cin >> numValues;
+
             if (op == 1) {
-                add();
+                add(numValues);
             } else if (op == 2) {
-                subtract();
+                subtract(numValues);
             } else if (op == 3) {
-                multiply();
+                multiply(numValues);
             } else if (op == 4) {
-                divide();
+                divide(numValues);
             }
+        }
     }
 }
-
